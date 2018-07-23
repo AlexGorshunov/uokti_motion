@@ -13,6 +13,7 @@
     "elasticsearch": "^14.2.2",
     "instagram-api": "^1.0.3",
     "lodash": "^4.17.10",
+    "lumi-aqara": "^1.6.0",
     "moment": "^2.22.0",
     "ramda": "^0.25.0",
     "request": "^2.83.0",
