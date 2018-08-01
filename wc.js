@@ -3,6 +3,9 @@ console.log = function() {
   _log.apply(_log, [`[${new Date().toLocaleString()}]`, ...arguments]);
 };
 
+const constants = require('lumi-aqara/src/constants');
+constants.GATEWAY_HEARTBEAT_OFFLINE_RATIO = 30;
+
 const Aqara = require('lumi-aqara');
 const moment = require('moment');
 const config = require('./config');
@@ -26,7 +29,7 @@ aqara.on('gateway', (gateway) => {
   });
 
   gateway.on('offline', () => {
-    // gateway = null;
+    gateway = null;
     console.log('Gateway is offline')
   });
 
