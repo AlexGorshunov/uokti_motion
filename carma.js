@@ -17,8 +17,8 @@ const arrayMaxDiff = (arr) => Math.max(...arr) - Math.min(...arr);
 
 const usersCurrentCarma = {};
 
-const users$ = streamToRx(fs.createReadStream('./users.csv').pipe(csv({ columns: ['login', 'displayName'] })))
-    .reduce((acc, curr) => Object.assign(acc, { [curr['login']]: curr['displayName'] }), {});
+const users$ = streamToRx(fs.createReadStream('./users.csv').pipe(csv({ columns: ['login', 'displayName', 'department'] })))
+    .reduce((acc, curr) => Object.assign(acc, { [curr['login']]: curr['displayName'], curr['department'] }), {});
 
 const carma$ = scrollQuery({ rxClient })({
   index: 'metrics-instagram',
